@@ -15,7 +15,12 @@ screen.onkeypress(player.move_up, "Up")
 screen.onkeypress(player.move_down, "Down")
 
 game_is_on = True
+cars = CarManager()
 while game_is_on:
-    time.sleep(0.1)
+    cars.create_new_car()
+    for each in cars.car_list:
+        each.move_left()
+    time.sleep(0.5)
     screen.update()
+
 screen.exitonclick()
