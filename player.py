@@ -1,4 +1,5 @@
 from turtle import Turtle
+import scoreboard
 STARTING_POSITION = (0, -280)
 MOVE_DISTANCE = 10
 FINISH_LINE_Y = 280
@@ -13,9 +14,17 @@ class Player(Turtle):
         self.goto(STARTING_POSITION)
 
     def move_up(self):
+        if self.ycor() == FINISH_LINE_Y:
+            self.reset()
+
+
         self.forward(MOVE_DISTANCE)
 
     def move_down(self):
         self.back(MOVE_DISTANCE)
+
+    def reset(self):
+        self.goto(STARTING_POSITION)
+
 
 
